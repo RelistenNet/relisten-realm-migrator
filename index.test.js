@@ -221,6 +221,26 @@ describe('Realm Migration API', () => {
     testDbPath = generateTestDatabase();
   });
 
+  afterAll(() => {
+    // Clean up test database files
+    try {
+      if (testDbPath) {
+        unlinkSync(testDbPath);
+        // Also clean up associated realm files
+        try { unlinkSync(testDbPath + '.lock'); } catch {}
+        try { unlinkSync(testDbPath + '.note'); } catch {}
+        // Clean up management directory
+        const managementDir = testDbPath + '.management';
+        try {
+          const { rmSync } = require('fs');
+          rmSync(managementDir, { recursive: true, force: true });
+        } catch {}
+      }
+    } catch (error) {
+      console.warn('Failed to clean up test database:', error.message);
+    }
+  });
+
   it('should successfully migrate a realm database', async () => {
     const dbBuffer = readFileSync(testDbPath);
     const file = new File([dbBuffer], 'test.realm', { type: 'application/octet-stream' });
