@@ -1,0 +1,23 @@
+{
+  "name": "relisten-realm-migrator",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.16.0",
+    "hono": "^4.8.5",
+    "realm": "^11.10.2"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.4"
+  }
+}
