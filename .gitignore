@@ -3,8 +3,6 @@ node_modules/
 .pnpm-debug.log*
 
 # Test databases
-*.realm*
-test-realm-*
 
 # Runtime data
 pids

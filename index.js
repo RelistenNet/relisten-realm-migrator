@@ -147,7 +147,8 @@ app.post('/migrate', async (c) => {
     } catch {
       try {
         realm = new Realm({ path: tempInputPath, readOnly: true });
-      } catch {
+      } catch (err) {
+        console.error(err)
         return c.json(
           { error: 'Unable to read database or unsupported version' },
           400
@@ -248,3 +249,5 @@ serve({
   fetch: app.fetch,
   port
 });
+
+export default app;
