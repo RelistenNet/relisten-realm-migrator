@@ -4,7 +4,7 @@
 set -e
 
 # Define registry and image name
-REGISTRY_IMAGE="relisten2.tail09dbf.ts.net:32000/relisten-realm-migrator"
+REGISTRY_IMAGE="relisten2.tail09dbf.ts.net:32000/relistennet/relisten-realm-migrator"
 
 echo "Starting deployment process..."
 
