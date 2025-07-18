@@ -133,7 +133,7 @@ app.post('/migrate', async (c) => {
     try {
       realm = new Realm({
         path: tempInputPath,
-        readOnly: true,
+        // readOnly: true,
         schema: [
           FavoritedArtistSchema,
           FavoritedShowSchema,
@@ -211,6 +211,8 @@ app.post('/migrate', async (c) => {
     }
 
     realm.close();
+
+    console.log(legacyData)
 
     return c.json({
       success: true,

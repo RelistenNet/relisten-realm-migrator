@@ -24,6 +24,7 @@ describe('Realm Migration API', () => {
 
     const formData = new FormData();
     formData.append('database', file);
+    console.log(file)
 
     const req = new Request('http://localhost/migrate', {
       method: 'POST',
