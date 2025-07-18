@@ -7,6 +7,10 @@ import { tmpdir } from 'os';
 
 const app = new Hono();
 
+app.get('/', (c) => {
+  return c.text('OK');
+});
+
 const FavoritedArtistSchema = {
   name: 'FavoritedArtist',
   primaryKey: 'uuid',
