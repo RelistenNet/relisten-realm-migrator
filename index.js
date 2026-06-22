@@ -216,7 +216,7 @@ app.post('/migrate', async (c) => {
 
     realm.close();
 
-    console.log(legacyData)
+    console.log(tempInputPath, JSON.stringify(legacyData));
 
     return c.json({
       success: true,
@@ -241,7 +241,7 @@ app.post('/migrate', async (c) => {
     );
   } finally {
     try {
-      if (tempInputPath) unlinkSync(tempInputPath);
+      // if (tempInputPath) unlinkSync(tempInputPath);
     } catch {
       // Ignore cleanup errors
     }
