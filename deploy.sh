@@ -4,7 +4,7 @@
 set -e
 
 # Define registry and image name
-REGISTRY_IMAGE="relisten2.tail09dbf.ts.net:32000/relistennet/relisten-realm-migrator"
+REGISTRY_IMAGE="ghcr.io/relistennet/relisten-realm-migrator"
 
 echo "Starting deployment process..."
 
@@ -15,10 +15,5 @@ docker push ${REGISTRY_IMAGE}:latest
 # Clean up local Docker image after pushing to registry
 echo "Cleaning up local Docker image..."
 docker rmi ${REGISTRY_IMAGE}:latest
-
-# Run the new container
-echo "Restarting..."
-
-kubectl rollout restart deployment relisten-realm-migrator
 
 echo "Deployment completed successfully!"
