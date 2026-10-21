@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install pnpm
-RUN npm install -g pnpm@10.13.1
+RUN npm install -g pnpm@12.14.0
 
 WORKDIR /app
 
