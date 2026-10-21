@@ -1,5 +1,5 @@
 # Stage 1: Builder
-FROM node:24-slim AS builder
+FROM node:26-slim AS builder
 
 # Install build dependencies for native modules
 RUN apt-get update && apt-get install -y \
@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install pnpm
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN npm install -g pnpm@10.13.1
 
 WORKDIR /app
 
@@ -27,7 +27,7 @@ COPY . .
 RUN pnpm prune --prod
 
 # Stage 2: Runtime
-FROM node:24-slim
+FROM node:26-slim
 
 # Labels
 LABEL org.opencontainers.image.source="https://github.com/relistennet/relisten-realm-migrator"
