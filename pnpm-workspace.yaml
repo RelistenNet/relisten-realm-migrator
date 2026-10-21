@@ -1,2 +1,3 @@
-onlyBuiltDependencies:
-  - realm
+allowBuilds:
+  esbuild: true
+  realm: true

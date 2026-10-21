@@ -13,12 +13,12 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@hono/node-server": "^1.16.0",
-    "hono": "^4.8.5",
+    "@hono/node-server": "^2.1.5",
+    "hono": "^4.13.13",
     "realm": "^11.10.2"
   },
   "devDependencies": {
-    "vitest": "^3.2.4"
+    "vitest": "^5.0.5"
   },
-  "packageManager": "pnpm@10.13.1"
+  "packageManager": "pnpm@12.14.0"
 }
