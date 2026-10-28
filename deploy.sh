@@ -16,4 +16,9 @@ docker push ${REGISTRY_IMAGE}:latest
 echo "Cleaning up local Docker image..."
 docker rmi ${REGISTRY_IMAGE}:latest
 
+# Restart pods so they pull the new image
+echo "Restarting pods..."
+kubectl --context relisten3 -n default rollout restart deployment/relisten-realm-migrator
+kubectl --context relisten3 -n default rollout status deployment/relisten-realm-migrator --timeout=180s
+
 echo "Deployment completed successfully!"
